@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script & Lyrics Writer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      width: 80%;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1.2em;
+      background-color: #fff;
+      resize: none;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .inspiration {
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      padding: 20px;
+      width: 80%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Script & Lyrics Writer</h1>
+  <p>Deine kreative Schreibplattform für Videos und Musik</p>
+</header>
+
+<div class="content">
+  <h2>Schreibe dein Skript oder Lyrics</h2>
+  <textarea id="scriptText" placeholder="Starte hier zu schreiben..."></textarea>
+  
+  <button onclick="saveScript()">Speichern</button>
+
+  <div class="inspiration">
+    <h3>Inspiration gefällig?</h3>
+    <button onclick="generateInspiration()">Generiere eine Idee</button>
+    <p id="inspirationText"></p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Script & Lyrics Writer</p>
+</footer>
+
+<script>
+  // Funktion zum Speichern des Texts
+  function saveScript() {
+    const scriptText = document.getElementById('scriptText').value;
+    if (scriptText) {
+      localStorage.setItem('savedScript', scriptText);
+      alert('Dein Skript wurde gespeichert!');
+    } else {
+      alert('Bitte schreibe etwas, bevor du speicherst!');
+    }
+  }
+
+  // Funktion zur Generierung von Inspirationsideen
+  function generateInspiration() {
+    const inspirations = [
+      "Schreibe einen Song über die Freiheit.",
+      "Erstelle ein Video über deine Lieblingsstadt.",
+      "Lass uns ein Skript über das Überwinden von Herausforderungen schreiben.",
+      "Verfasse einen Text über Selbstliebe und Akzeptanz.",
+      "Stelle dir vor, du bist ein Held in einem Abenteuer und schreibe ein Skript."
+    ];
+    const randomInspiration = inspirations[Math.floor(Math.random() * inspirations.length)];
+    document.getElementById('inspirationText').innerText = randomInspiration;
+  }
+
+</script>
+
+</body>
+</html>
